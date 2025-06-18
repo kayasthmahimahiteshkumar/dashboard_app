@@ -3,16 +3,17 @@ import random
 import requests
 
 app = Flask(__name__)
-api_key="1e4fab47686917a1d937476d67e1c60d"
-
+api_key = "1e4fab47686917a1d937476d67e1c60d"
 
 
 @app.route("/")
-def index():
+def home():
     return render_template("index.html")
 
+
+# ✅ FIXED SINGLE ROUTE FOR '/'
 @app.route("/", methods=["GET", "POST", "HEAD"])
-def dashboard():
+def index():
     if request.method == "HEAD":
         return '', 200
     return render_template("dashboard.html")
@@ -21,7 +22,7 @@ def dashboard():
 def calculator():
     result = None
     if request.method == "POST":
-        try:    
+        try:
             num1 = float(request.form["num1"])
             num2 = float(request.form["num2"])
             op = request.form["operation"]
@@ -65,14 +66,14 @@ def rps():
         user = request.form["choice"]
         comp = random.choice(["rock", "paper", "scissors"])
         if user == comp:
-            result = "Draw"
+            outcome = "Draw"
         elif (user == "rock" and comp == "scissors") or \
              (user == "scissors" and comp == "paper") or \
              (user == "paper" and comp == "rock"):
-            result = "You Win!"
+            outcome = "You Win!"
         else:
-            result = "Computer Wins!"
-        result = f"You: {user}, Computer: {comp}. {result}"
+            outcome = "Computer Wins!"
+        result = f"You: {user}, Computer: {comp}. {outcome}"
     return render_template("rps.html", result=result)
 
 @app.route("/guess", methods=["GET", "POST", "HEAD"])
@@ -127,9 +128,6 @@ def weather():
         else:
             error = "Please enter a city name"
     return render_template("weather.html", weather=weather_data, error=error)
-
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)
