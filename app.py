@@ -5,14 +5,13 @@ import requests
 app = Flask(__name__)
 api_key="1e4fab47686917a1d937476d67e1c60d"
 
-@app.route("/")
-def index():
-    return render_template("index.html")
-
 @app.route("/", methods=["GET", "POST", "HEAD"])
 def dashboard():
     return render_template("dashboard.html")
 
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 
 @app.route("/calculator", methods=["GET", "POST"])
