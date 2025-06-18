@@ -10,7 +10,7 @@ def index():
     return render_template("index.html")
 
 @app.route("/", methods=["GET", "POST", "HEAD"])
-def index():
+def dashboard():
     return render_template("dashboard.html")
 
 
