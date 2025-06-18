@@ -13,6 +13,8 @@ def index():
 
 @app.route("/", methods=["GET", "POST", "HEAD"])
 def dashboard():
+    if request.method == "HEAD":
+        return '', 200
     return render_template("dashboard.html")
 
 @app.route("/calculator", methods=["GET", "POST", "HEAD"])
