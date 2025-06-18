@@ -10,8 +10,9 @@ def index():
     return render_template("index.html")
 
 @app.route("/", methods=["GET", "POST", "HEAD"])
-def dashboard():
+def index():
     return render_template("dashboard.html")
+
 
 
 @app.route("/calculator", methods=["GET", "POST"])
