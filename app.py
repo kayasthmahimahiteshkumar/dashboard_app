@@ -11,7 +11,7 @@ api_key="1e4fab47686917a1d937476d67e1c60d"
 def index():
     return render_template("index.html")
 
-@app.route("/", methods=["GET", "POST", "HEAD"])
+@app.route("/", methods=["GET", "POST"])
 def dashboard():
     return render_template("dashboard.html")
 
