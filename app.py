@@ -11,11 +11,11 @@ api_key="1e4fab47686917a1d937476d67e1c60d"
 def index():
     return render_template("index.html")
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST", "HEAD"])
 def dashboard():
     return render_template("dashboard.html")
 
-@app.route("/calculator", methods=["GET", "POST"])
+@app.route("/calculator", methods=["GET", "POST", "HEAD"])
 def calculator():
     result = None
     if request.method == "POST":
@@ -37,7 +37,7 @@ def calculator():
             result = "Invalid Input"
     return render_template("calculator.html", result=result)
 
-@app.route("/currency", methods=["GET", "POST"])
+@app.route("/currency", methods=["GET", "POST", "HEAD"])
 def currency():
     result = None
     if request.method == "POST":
@@ -56,7 +56,7 @@ def currency():
             result = "Error"
     return render_template("converter.html", result=result)
 
-@app.route("/rps", methods=["GET", "POST"])
+@app.route("/rps", methods=["GET", "POST", "HEAD"])
 def rps():
     result = None
     if request.method == "POST":
@@ -73,7 +73,7 @@ def rps():
         result = f"You: {user}, Computer: {comp}. {result}"
     return render_template("rps.html", result=result)
 
-@app.route("/guess", methods=["GET", "POST"])
+@app.route("/guess", methods=["GET", "POST", "HEAD"])
 def guess():
     result = None
     if request.method == "POST":
@@ -90,7 +90,7 @@ def guess():
             result = "Invalid input"
     return render_template("guess.html", result=result)
 
-@app.route("/register", methods=["GET", "POST"])
+@app.route("/register", methods=["GET", "POST", "HEAD"])
 def register():
     msg = None
     if request.method == "POST":
@@ -100,7 +100,7 @@ def register():
         msg = f"Welcome {name}! Registered successfully."
     return render_template("register.html", msg=msg)
 
-@app.route("/weather", methods=["GET", "POST"])
+@app.route("/weather", methods=["GET", "POST", "HEAD"])
 def weather():
     weather_data = None
     error = None
