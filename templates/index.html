@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Web Apps Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Web Apps Dashboard</h1>
+        <div class="grid">
+            <a href="{{ url_for('calculator') }}" class="box">Calculator</a>
+            <a href="{{ url_for('currency') }}" class="box">Currency Converter</a>
+            <a href="{{ url_for('rps') }}" class="box">Rock Paper Scissors</a>
+            <a href="{{ url_for('guess') }}" class="box">Guessing Game</a>
+            <a href="{{ url_for('register') }}" class="box">Register</a>
+            <a href="{{ url_for('weather') }}" class="box">Weather App</a>
+        </div>
+    </div>
+</body>
+</html>
